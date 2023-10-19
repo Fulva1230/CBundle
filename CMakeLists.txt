@@ -5,6 +5,9 @@ project(CBundle)
 function(cbundle_deploy target resources_dir search_path bundle_dir)
     get_target_property(target_exe ${target} OUTPUT_NAME)
     configure_file(cmake/bundle.cmake.in bundle.cmake)
+    add_custom_command(TARGET ${target} POST_BUILD
+            COMMAND cmake
+    )
 endfunction()
 
 add_executable(Test test.cpp)
