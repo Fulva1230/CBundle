@@ -1,17 +1,17 @@
 file(GET_RUNTIME_DEPENDENCIES 
 RESOLVED_DEPENDENCIES_VAR resolved_deps
 UNRESOLVED_DEPENDENCIES_VAR unresolved_deps
-DIRECTORIES ${search_path}
-POST_INCLUDE_REGEXES ${search_path}
+DIRECTORIES @CBUNDLE_DLL_PATH@
+POST_INCLUDE_REGEXES @CBUNDLE_DLL_PATH@
 POST_EXCLUDE_REGEXES ".*"
-EXECUTABLES ${target_exe}
+EXECUTABLES @CBUNDLE_TARGET_EXE_PATH@
 )
 
-message(search_path: ${search_path})
+message("search_path: @CBUNDLE_DLL_PATH@")
 
-file(INSTALL ${target_exe} DESTINATION ${bundle_dir})
-file(INSTALL ${resolved_deps} DESTINATION ${bundle_dir})
-file(INSTALL ${resources_dir} DESTINATION ${bundle_dir})
+file(INSTALL @CBUNDLE_TARGET_EXE_PATH@ DESTINATION @CBUNDLE_BUNDLE_DIR@)
+file(INSTALL ${resolved_deps} DESTINATION @CBUNDLE_BUNDLE_DIR@)
+file(INSTALL ${resources_dir} DESTINATION @CBUNDLE_BUNDLE_DIR@)
 
 message(resolved: ${resolved_deps})
 message(unresolved: ${unresolved_deps})
