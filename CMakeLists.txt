@@ -9,6 +9,7 @@ project(CBundle)
 #        DLL_PATH 1 2 3 4 5
 #        RESOURCES_PATH 5 6 7 8 9
 #)
+set(CBundle_DIR CACHE PATH ${CMAKE_CURRENT_LIST_DIR})
 function(cbundle_deploy)
     set(oneValueArgs TARGET BUNDLE_DIR TARGET_EXE_PATH )
     set(multiValueArgs DLL_PATH RESOURCES_PATH)
@@ -19,7 +20,7 @@ function(cbundle_deploy)
     message("DLL_PATH is ${CBUNDLE_DLL_PATH}")
     message("RESOURCES_PATH is ${CBUNDLE_RESOURCES_PATH}")
 
-    configure_file(cmake/bundle.cmake.in bundle.cmake @ONLY)
+    configure_file(${CBundle_DIR}/cmake/bundle.cmake.in bundle.cmake @ONLY)
     add_custom_command(TARGET ${CBUNDLE_TARGET} POST_BUILD
             COMMAND cmake -P ${CMAKE_CURRENT_BINARY_DIR}/bundle.cmake
     )
