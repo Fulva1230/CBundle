@@ -21,7 +21,7 @@ function(cbundle_deploy)
 
     configure_file(cmake/bundle.cmake.in bundle.cmake @ONLY)
     add_custom_command(TARGET ${CBUNDLE_TARGET} POST_BUILD
-            COMMAND cmake
+            COMMAND cmake -P ${CMAKE_CURRENT_BINARY_DIR}/bundle.cmake
     )
 endfunction()
 
