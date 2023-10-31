@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(CBundle)
+project(CBundle VERSION 0.0.1)
 
 #cbundle_deploy(
 #        TARGET Test
@@ -9,7 +9,6 @@ project(CBundle)
 #        DLL_PATH 1 2 3 4 5
 #        RESOURCES_PATH 5 6 7 8 9
 #)
-set(CBundle_DIR CACHE PATH ${CMAKE_CURRENT_LIST_DIR})
 function(cbundle_deploy)
     set(oneValueArgs TARGET BUNDLE_DIR TARGET_EXE_PATH )
     set(multiValueArgs DLL_PATH RESOURCES_PATH)
