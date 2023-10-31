@@ -24,13 +24,3 @@ function(cbundle_deploy)
             COMMAND cmake -P ${CMAKE_CURRENT_BINARY_DIR}/bundle.cmake
     )
 endfunction()
-
-add_executable(Test test.cpp)
-
-cbundle_deploy(
-        TARGET Test
-        BUNDLE_DIR ${CMAKE_CURRENT_BINARY_DIR}/dist
-        TARGET_EXE_PATH ${CMAKE_CURRENT_BINARY_DIR}/Test.exe
-        DLL_PATH 1 2 3 4 5
-        RESOURCES_PATH 5 6 7 8 9
-)
