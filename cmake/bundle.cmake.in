@@ -11,7 +11,7 @@ message("search_path: @CBUNDLE_DLL_PATH@")
 
 file(INSTALL @CBUNDLE_TARGET_EXE_PATH@ DESTINATION @CBUNDLE_BUNDLE_DIR@)
 file(INSTALL ${resolved_deps} DESTINATION @CBUNDLE_BUNDLE_DIR@)
-file(INSTALL ${resources_dir} DESTINATION @CBUNDLE_BUNDLE_DIR@)
+file(INSTALL @CBUNDLE_RESOURCES_PATH@ DESTINATION @CBUNDLE_BUNDLE_DIR@)
 
 message(resolved: ${resolved_deps})
 message(unresolved: ${unresolved_deps})

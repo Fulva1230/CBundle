@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(CBundle VERSION 0.0.1)
+project(CBundle VERSION 0.1.0)
 
 #cbundle_deploy(
 #        TARGET Test
