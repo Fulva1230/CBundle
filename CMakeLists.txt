@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(CBundle VERSION 0.1.0)
+project(CBundle VERSION 0.2.0)
 
 #cbundle_deploy(
 #        TARGET Test
@@ -19,8 +19,8 @@ function(cbundle_deploy)
     message(VERBOSE "DLL_PATH is ${CBUNDLE_DLL_PATH}")
     message(VERBOSE "RESOURCES_PATH is ${CBUNDLE_RESOURCES_PATH}")
 
-    configure_file(${CBundle_SOURCE_DIR}/cmake/bundle.cmake.in bundle.cmake @ONLY)
+    configure_file(${CBundle_SOURCE_DIR}/cmake/bundle.cmake.in bundle-${CBUNDLE_TARGET}.cmake @ONLY)
     add_custom_command(TARGET ${CBUNDLE_TARGET} POST_BUILD
-            COMMAND cmake -P ${CMAKE_CURRENT_BINARY_DIR}/bundle.cmake
+            COMMAND cmake -P ${CMAKE_CURRENT_BINARY_DIR}/bundle-${CBUNDLE_TARGET}.cmake
     )
 endfunction()
